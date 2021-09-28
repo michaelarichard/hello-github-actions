@@ -4,6 +4,14 @@ on:
   pull_request:
 
 jobs:
+  # checkout:
+  #   steps:
+  #     # current branch head, not detached.
+  #     - uses: actions/checkout@v1
+  #       with:
+  #         # ref: ${{ github.event.pull_request.head.sha }}
+  #         fetch-depth: 0
+
   build:
     name: Hello world action
     runs-on: ubuntu-latest
@@ -14,7 +22,7 @@ jobs:
       # current branch head, not detached.
       - uses: actions/checkout@v1
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
+          # ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
       # local custom action
