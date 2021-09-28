@@ -7,6 +7,9 @@ jobs:
   build:
     name: Hello world action
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v1
       - uses: ./action-a
@@ -29,6 +32,10 @@ jobs:
       #     skip-on-empty: 'false'
       #     skip-version-file: 'false'
       #     skip-commit: 'false'
+      - name: Validate
+        env:
+          FOLDER: test
+        run: pwd && git status
 
 
 
