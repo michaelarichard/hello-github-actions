@@ -30,6 +30,7 @@ jobs:
           fetch-depth: 0
 
       - uses: actions/checkout@v1
+        if: "!contains(github.ref, 'refs/pull')"
         with:
           fetch-depth: 0
 
