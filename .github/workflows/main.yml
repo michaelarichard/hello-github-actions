@@ -25,7 +25,7 @@ jobs:
       # current branch head, not detached.
       - uses: actions/checkout@v1
         with:
-          # ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
         # if: contains(github.ref, "")
 
@@ -42,6 +42,7 @@ jobs:
           pwd
           git status
           git branch | cat
+          git log | head -n 10
           git pull --tags --ff-only
 
       - name: Conventional Changelog Action
