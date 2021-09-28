@@ -35,9 +35,11 @@ jobs:
       - name: Validate
         env:
           FOLDER: test
-        run: pwd && git status && git branch | cat
-
-
+        run: |
+          pwd
+          git status
+          git branch | cat
+          git pull --tags --ff-only
 
       - name: Conventional Changelog Action
         id: changelog
