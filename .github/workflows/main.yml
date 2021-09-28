@@ -42,7 +42,6 @@ jobs:
           pwd
           git status
           git branch | cat
-          git log | head -n 10
           git pull --tags --ff-only
 
       - name: Conventional Changelog Action
