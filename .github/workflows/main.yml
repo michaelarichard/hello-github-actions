@@ -25,7 +25,7 @@ jobs:
       # current branch head, not detached.
       - uses: actions/checkout@v1
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          # ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
         # if: contains(github.ref, "")
 
