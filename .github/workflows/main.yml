@@ -35,7 +35,7 @@ jobs:
       - name: Validate
         env:
           FOLDER: test
-        run: pwd && git status
+        run: pwd && git status && git branch | cat
 
 
 
