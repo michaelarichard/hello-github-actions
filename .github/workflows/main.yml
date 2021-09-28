@@ -12,6 +12,8 @@ jobs:
         shell: bash
     steps:
       - uses: actions/checkout@v1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       - uses: ./action-a
         with:
           MY_NAME: "Mona"
