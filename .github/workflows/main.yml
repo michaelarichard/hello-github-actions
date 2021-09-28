@@ -30,9 +30,7 @@ jobs:
           fetch-depth: 0
 
       - uses: actions/checkout@v1
-        if: github.event.push
         with:
-          # ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
 
