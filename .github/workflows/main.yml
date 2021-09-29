@@ -22,16 +22,20 @@ jobs:
       run:
         shell: bash
     steps:
+      # default branch main, not master.
+      - name: default branch
+        run: git config --global init.defaultBranch main
       # current branch head, not detached.
       - uses: actions/checkout@v1
         if: github.event.pull_request
-        # with:
-        #   # ref: ${{ github.event.pull_request.head.ref }}
-        #   fetch-depth: 0
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
 
       - uses: actions/checkout@v1
         if: "!contains(github.ref, 'refs/pull')"
         with:
+          ref: ${{ github.ref }}
           fetch-depth: 0
 
 
