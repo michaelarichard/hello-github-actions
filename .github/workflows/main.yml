@@ -28,20 +28,20 @@ jobs:
 
       # if Pull Request
       - uses: actions/checkout@v1
-        if: github.event.pull_request
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
+        # if: github.event.pull_request
+        # with:
+        #   ref: ${{ github.event.pull_request.head.ref }}
+        #   fetch-depth: 0
 
-      # if branch
-      - uses: actions/checkout@v1
-        if: "!contains(github.ref, 'refs/pull')"
-        with:
-          ref: ${{ github.ref }}
-          fetch-depth: 0
+      # # if branch
+      # - uses: actions/checkout@v1
+      #   if: "!contains(github.ref, 'refs/pull')"
+      #   with:
+      #     ref: ${{ github.ref }}
+      #     fetch-depth: 0
 
-      - name: fix
-        run: "git checkout ${{ github.ref }}"
+      # - name: fix
+      #   run: "git checkout ${{ github.ref }}"
 
       # local custom action
       - uses: ./action-a
