@@ -25,19 +25,23 @@ jobs:
       # default branch main, not master.
       - name: default branch
         run: git config --global init.defaultBranch main
-      # current branch head, not detached.
+
+      # if Pull Request
       - uses: actions/checkout@v1
         if: github.event.pull_request
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
+      # if branch
       - uses: actions/checkout@v1
         if: "!contains(github.ref, 'refs/pull')"
         with:
           ref: ${{ github.ref }}
           fetch-depth: 0
 
+      - name: fix
+        run: git switch -
 
       # local custom action
       - uses: ./action-a
