@@ -40,8 +40,8 @@ jobs:
           ref: ${{ github.ref }}
           fetch-depth: 0
 
-      - name: fix
-        run: git switch -
+      # - name: fix
+      #   run: git switch -
 
       # local custom action
       - uses: ./action-a
