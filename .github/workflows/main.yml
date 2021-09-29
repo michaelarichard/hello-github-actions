@@ -25,14 +25,14 @@ jobs:
       # current branch head, not detached.
       - uses: actions/checkout@v1
         if: github.event.pull_request
-        with:
-          # ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
+        # with:
+        #   # ref: ${{ github.event.pull_request.head.ref }}
+        #   fetch-depth: 0
 
       - uses: actions/checkout@v1
         if: "!contains(github.ref, 'refs/pull')"
-        with:
-          fetch-depth: 0
+        # with:
+        #   fetch-depth: 0
 
 
       # local custom action
