@@ -34,11 +34,11 @@ jobs:
         #   fetch-depth: 0
 
       # # if branch
-      # - uses: actions/checkout@v1
-      #   if: "!contains(github.ref, 'refs/pull')"
-      #   with:
-      #     ref: ${{ github.ref }}
-      #     fetch-depth: 0
+      - uses: actions/checkout@v1
+        if: "!contains(github.ref, 'refs/pull')"
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
 
       # - name: fix
       #   run: "git checkout ${{ github.ref }}"
@@ -54,7 +54,6 @@ jobs:
         run: |
           pwd
           git status
-          git branch | cat
           git pull --tags --ff-only
 
       - name: Conventional Changelog Action
