@@ -38,7 +38,7 @@ jobs:
         if: "!contains(github.ref, 'refs/pull')"
         with:
           ref: ${{ github.ref }}
-          fetch-depth: 0
+          # fetch-depth: 0
 
       # - name: fix
       #   run: "git checkout ${{ github.ref }}"
